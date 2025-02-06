@@ -26,6 +26,10 @@ npx playwright install
 # Install dependencies
 npm install
 
+# Add API key
+rename .env.example file to .env
+add API_KEY value
+
 # Run API tests
 npm run test
 
@@ -34,7 +38,6 @@ npm run test
 ### GitHub Actions:
 
 The tests can also be executed as part of the **CI/CD pipeline** in **GitHub Actions**.
-
 A workflow runs API and UI tests whenever a pull request is created for the main branch.
 
 ## 🔍 Approach
@@ -43,7 +46,7 @@ A workflow runs API and UI tests whenever a pull request is created for the main
 
 - The API tests are located in `tests/api-tests` folder
 - The tests include both **successful and unsuccessful scenarios**.
-- Validation covers **status codes, response schemas validation and custome fields**.
+- Validation covers **status codes, response schemas and custom fields validation**.
 
 ## 🐞 Found Bugs Marked with `.fail()`
 
