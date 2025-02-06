@@ -18,11 +18,14 @@ test.describe('Rijksmuseum Collection Details API Tests', () => {
     expect(data.artObject.hasImage).toBe(true);
   });
 
-  test.fail('Fetch Collection Details - Invalid Object (Skipping due to Bug: API returns 200 instead of 404)', async () => {
-    const INVALID_OBJECT_NUMBER = 'UNKNOWN-123';
-    const response = await apiClient.get(`/collection/${INVALID_OBJECT_NUMBER}`, {
-      params: { key: API_KEY },
-    });
-    expect(response.status).toBe(404);
-  });
+  test.fail(
+    'Fetch Collection Details - Invalid Object (Skipping due to Bug: API returns 200 instead of 404)',
+    async () => {
+      const INVALID_OBJECT_NUMBER = 'UNKNOWN-123';
+      const response = await apiClient.get(`/collection/${INVALID_OBJECT_NUMBER}`, {
+        params: { key: API_KEY },
+      });
+      expect(response.status).toBe(404);
+    }
+  );
 });

@@ -27,17 +27,20 @@ test.describe('Collection - Filtering Tests', () => {
     });
   });
 
-  test.fail('Invalid Data Type for Filter - Period as String (Bug: API returns 200 instead of 400)', async () => {
-    /* 
+  test.fail(
+    'Invalid Data Type for Filter - Period as String (Bug: API returns 200 instead of 400)',
+    async () => {
+      /* 
     Parameter f.dating.period
     Format: 0-21
     Note: The century in which the object is made. Can be negative as well (e.g. -1)
     */
-    const response = await apiClient.get('/collection', {
-      params: { key: API_KEY, 'f.dating.period': 'seventeen' },
-    });
-    expect(response.status).toBe(400);
-  });
+      const response = await apiClient.get('/collection', {
+        params: { key: API_KEY, 'f.dating.period': 'seventeen' },
+      });
+      expect(response.status).toBe(400);
+    }
+  );
 
   test('Search for Non-Existent Artist', async () => {
     const response = await apiClient.get('/collection', {
